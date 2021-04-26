@@ -1,20 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	padding: 0;
+	margin: 0;
+	font-family: 'Josefin Sans', sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 18px;
+
+	--bright-blue: #3f7efd;
+	--very-dark-blue: #161722;
+	--very-dark-desaturated-blue: #25273c;
+	--light-grayish-blue: #cacde8;
+	--light-grayish-blue-hover: #e4e5f1;
+	--dark-grayish-blue: #777a92;
+	--very-dark-grayish-blue: #4d5066;
+	--very-dark-grayish-blue: #393a4c;
+	--very-light-gray: #fafafa;
+	--very-light-grayish-blue: #e4e5f1;
+	--light-grayish-blue: #d2d3db;
+	--dark-grayish-blue: #9394a5;
+	--very-dark-grayish-blue: #484b6a;
 }
 
-#__next{
-  min-height: 100vh;
+#__next {
+	min-height: 100vh;
+}
+
+input[type='checkbox']:checked {
+	background-image: linear-gradient(#57ddff, #c058f3);
+}
+
+ul {
+	list-style-type: none;
+}
+
+.darkMode {
+	--background-color: black;
+	--todo-content-color: white;
+}
+
+.lightMode {
+	--background-color: white;
+	--todo-content-color: black;
 }

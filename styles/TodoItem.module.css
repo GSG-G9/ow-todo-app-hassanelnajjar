@@ -1,0 +1,14 @@
+.todoItem{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  border:1px solid black;
+  padding:1rem;
+  background-color: white;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.todoContent{
+  color:black
+}

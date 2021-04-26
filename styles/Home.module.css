@@ -4,16 +4,9 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  background-color: var(--background-color);
   min-height: 100vh;
 }
-
-.containerBackgroundLight{
-  background-color:white
-}
-.containerBackgroundDark{
-  background-color:black
-}
-
 
 .imageContainerDiv{
   position: absolute;
@@ -36,8 +29,9 @@
   justify-content: space-between;
 }
 
-
 .title{
-  background-color: yellow;
+  letter-spacing: 1rem;
+  text-transform: uppercase;
+  color:white
 }
 

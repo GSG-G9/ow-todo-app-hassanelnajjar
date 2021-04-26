@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Head from 'next/head';
 import style from '../styles/Home.module.css';
 
-import { Provider, useTodos } from '../components/Provider';
-
+import { Provider } from '../components/Provider';
+import { Todo } from '../components/Todo';
 import { TodosList } from '../components/TodosList';
 
 const darkImageBackground = '/assets/images/bg-desktop-dark.jpg';
@@ -19,11 +19,9 @@ const Home = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div
-        className={`${
-          lightMode
-            ? style.containerBackgroundLight
-            : style.containerBackgroundDark
-        } ${style.container} `}
+        className={`${lightMode ? 'lightMode' : 'darkMode'} ${
+          style.container
+        } `}
       >
         <div className={style.imageContainerDiv}>
           <div className={style.imageContainer}>
@@ -44,9 +42,7 @@ const Home = () => {
               Light/Dark
             </button>
           </header>
-          <div>
-            <input type="text" />
-          </div>
+          <Todo />
           <TodosList />
         </div>
       </div>
