@@ -6,7 +6,13 @@ import { CheckBox } from '../CheckBox';
 const TodoItem = ({ todo: { content, checked, id } }) => (
   <li className={style.todoItem}>
     <CheckBox id={id} checked={checked} />
-    <p className={style.todoContent}>{content}</p>
+    <p
+      className={`${style.todoContent} ${
+        checked ? style.todoContentCheck : ''
+      }`}
+    >
+      {content}
+    </p>
   </li>
 );
 

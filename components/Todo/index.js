@@ -17,8 +17,10 @@ const Todo = () => {
 
   return (
     <form className={style.addTodoDiv} onSubmit={handleSubmit}>
-      <CheckBox />
+      <CheckBox checkAll />
       <input
+        className={style.todoInput}
+        placeholder="Create a new todo..."
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}

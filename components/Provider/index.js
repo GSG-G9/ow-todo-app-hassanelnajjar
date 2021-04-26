@@ -12,7 +12,7 @@ const initialState = [
 const todoReducer = (todos, action) => {
   const {
     type,
-    payload: { id, content },
+    payload: { id, content, checked },
   } = action;
   const todosCount = todos.length;
   const currentTodoItem = todos.find((todo) => todo.id === id);
@@ -33,6 +33,8 @@ const todoReducer = (todos, action) => {
         ...remindingTodos,
         { ...currentTodoItem, checked: !currentTodoItem.checked },
       ].sort((a, b) => a.id - b.id);
+    case 'check-all-todo':
+      return todos.map((todo) => ({ ...todo, checked }));
     case 'clear-completed-todos':
       return [...todos];
     default:

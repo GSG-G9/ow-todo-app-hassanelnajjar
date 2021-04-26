@@ -2,12 +2,12 @@ import { bool, number } from 'prop-types';
 import { useTodos } from '../Provider';
 import style from '../../styles/CheckBox.module.css';
 
-const CheckBox = ({ id, checked }) => {
+const CheckBox = ({ id, checked, checkAll }) => {
   const [, dispatch] = useTodos();
-  const handleCheck = (todoId) => () => {
+  const handleCheck = (todoId) => (e) => {
     dispatch({
-      type: 'check-todo',
-      payload: { id: todoId },
+      type: checkAll ? 'check-all-todo' : 'check-todo',
+      payload: { id: todoId, checked: e.target.checked },
     });
   };
   return (
@@ -18,8 +18,14 @@ const CheckBox = ({ id, checked }) => {
   );
 };
 
+CheckBox.defaultProps = {
+  id: 0,
+  checkAll: false,
+};
+
 CheckBox.propTypes = {
-  id: number.isRequired,
+  id: number,
+  checkAll: bool,
   checked: bool.isRequired,
 };
 
