@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb", "prettier","plugin:jest/recommended"],
+  "extends": ["airbnb", "prettier"],
   "parserOptions": {
     "ecmaVersion": 12,
     "ecmaFeatures": {
@@ -19,8 +19,7 @@
   "root": true,
   "env": {
     "browser": true,
-    "es2021": true,
-    "jest/globals": true
+    "es2021": true
   },
   "rules": {
     "react/jsx-filename-extension": [
@@ -32,6 +31,8 @@
     "no-nested-ternary": "off",
     "react/prefer-stateless-function": [0],
     "react/jsx-props-no-spreading": [0],
+    "react/react-in-jsx-scope":"off",
+    "import/prefer-default-export":"off",
     "quotes": [
       2,
       "single",
