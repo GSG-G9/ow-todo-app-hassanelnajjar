@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { arrayOf, element } from 'prop-types';
-import { deleteTodo, getTodos } from '../../services';
 
 const context = createContext();
 
