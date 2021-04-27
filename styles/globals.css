@@ -46,6 +46,7 @@ ul {
 }
 
 .darkMode {
+		--shadow-color:black;
 	--todo-item-text:var(--very-light-grayish-blue);
 		--background-color:var(--very-dark-desaturated-blue);
 	--background-color-todo-item: var(--very-dark-grayish-blue);
@@ -53,6 +54,7 @@ ul {
 }
 
 .lightMode {
+		--shadow-color:#393a4c;
 	--todo-item-text:var(--very-dark-grayish-blue);
 	--background-color-todo-item: white;
 	--background-color:white;
