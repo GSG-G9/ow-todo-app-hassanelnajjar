@@ -1,5 +1,6 @@
 import { func } from 'prop-types';
 import { useTodos } from '../Provider';
+import style from '../../styles/TodoButtons.module.css';
 
 const TodoButtons = ({ setDisplayedTodos }) => {
   const [todos, dispatch] = useTodos();
@@ -11,20 +12,38 @@ const TodoButtons = ({ setDisplayedTodos }) => {
   const handleClearCompleted = () =>
     dispatch({ type: 'delete-completed', payload: {} });
   return (
-    <li>
-      <span>{unCheckedTodos} items left</span>
-      <div>
-        <button type="button" onClick={handleAllTodos}>
+    <li className={style.todoButtonFooter}>
+      <span className={style.todoButtonTotalItems}>
+        {unCheckedTodos} items left
+      </span>
+      <div className={style.todoButtonDiv}>
+        <button
+          className={style.todoButton}
+          type="button"
+          onClick={handleAllTodos}
+        >
           All
         </button>
-        <button type="button" onClick={handleActiveTodos}>
+        <button
+          className={style.todoButton}
+          type="button"
+          onClick={handleActiveTodos}
+        >
           Active
         </button>
-        <button type="button" onClick={handleCompletedTodos}>
+        <button
+          className={style.todoButton}
+          type="button"
+          onClick={handleCompletedTodos}
+        >
           Completed
         </button>
       </div>
-      <button type="button" onClick={handleClearCompleted}>
+      <button
+        className={style.todoButton}
+        type="button"
+        onClick={handleClearCompleted}
+      >
         Clear Completed
       </button>
     </li>

@@ -17,19 +17,20 @@ a {
 	box-sizing: border-box;
 	font-size: 18px;
 
+
 	--bright-blue: #3f7efd;
 	--very-dark-blue: #161722;
 	--very-dark-desaturated-blue: #25273c;
 	--light-grayish-blue: #cacde8;
 	--light-grayish-blue-hover: #e4e5f1;
 	--dark-grayish-blue: #777a92;
-	--very-dark-grayish-blue: #4d5066;
+
 	--very-dark-grayish-blue: #393a4c;
 	--very-light-gray: #fafafa;
 	--very-light-grayish-blue: #e4e5f1;
 	--light-grayish-blue: #d2d3db;
 	--dark-grayish-blue: #9394a5;
-	--very-dark-grayish-blue: #484b6a;
+
 }
 
 #__next {
@@ -45,12 +46,16 @@ ul {
 }
 
 .darkMode {
-	--background-color: black;
+	--todo-item-text:var(--very-light-grayish-blue);
+		--background-color:var(--very-dark-desaturated-blue);
+	--background-color-todo-item: var(--very-dark-grayish-blue);
 	--todo-content-color: white;
 }
 
 .lightMode {
-	--background-color: white;
+	--todo-item-text:var(--very-dark-grayish-blue);
+	--background-color-todo-item: white;
+	--background-color:white;
 	--todo-content-color: black;
 }
 

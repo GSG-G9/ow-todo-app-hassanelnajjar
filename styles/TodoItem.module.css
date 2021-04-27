@@ -4,11 +4,12 @@
   align-items:center;
   border:1px solid rgba(0, 0, 0, 0.159);
   padding:1rem;
-  background-color: white;
+  background-color: transparent;
+  color:inherit
 }
 
 .todoContent{
-  color:black;
+  color:inherit;
   text-align: left;
   margin-left: 1rem;
   cursor: pointer;

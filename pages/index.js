@@ -29,6 +29,7 @@ const Home = () => {
               src={lightMode ? lightImageBackground : darkImageBackground}
               alt="background image"
               layout="fill"
+              objectFit="cover"
             />
           </div>
         </div>
