@@ -1,6 +1,7 @@
 import { func } from 'prop-types';
 import { useTodos } from '../Provider';
 import style from '../../styles/TodoButtons.module.css';
+import { deleteTodos } from '../../services';
 
 const TodoButtons = ({ setDisplayedTodos }) => {
   const [todos, dispatch] = useTodos();
@@ -9,8 +10,10 @@ const TodoButtons = ({ setDisplayedTodos }) => {
   const handleAllTodos = () => setDisplayedTodos('all');
   const handleActiveTodos = () => setDisplayedTodos('active');
   const handleCompletedTodos = () => setDisplayedTodos('completed');
-  const handleClearCompleted = () =>
-    dispatch({ type: 'delete-completed', payload: {} });
+  const handleClearCompleted = async () => {
+    const todosList = await deleteTodos();
+    dispatch({ type: 'delete-completed', payload: { list: todosList } });
+  };
   return (
     <li className={style.todoButtonFooter}>
       <span className={style.todoButtonTotalItems}>

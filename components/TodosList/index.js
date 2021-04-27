@@ -6,6 +6,7 @@ import style from '../../styles/TodosList.module.css';
 
 export const TodosList = () => {
   const [todos] = useTodos();
+  console.log('hassan', todos);
   const [displayedTodos, setDisplayedTodos] = useState('all');
   return (
     <ul className={style.todosList}>

@@ -2,15 +2,17 @@ import { useState } from 'react';
 import style from '../../styles/Todo.module.css';
 import { useTodos } from '../Provider';
 import { CheckBox } from '../CheckBox';
+import { addTodo } from '../../services';
 
 const Todo = () => {
   const [, dispatch] = useTodos();
   const [value, setValue] = useState('');
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const todoList = await addTodo(value);
     dispatch({
       type: 'add-todo',
-      payload: { content: value },
+      payload: { list: todoList },
     });
     setValue('');
   };

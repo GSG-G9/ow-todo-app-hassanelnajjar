@@ -1,11 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import openDb from '../../src/sqlite';
+import { checkTodo, getTodos } from '../../src/database/queries';
 
-const checkTodoAsCompleted = async (req, res) => {
-  const db = await openDb();
-  const todos = await db.all('SELECT * from todos');
-  todos.map((todo) => ({ ...todo, checked: !!todo.checked }));
+export default async (req, res) => {
+  const {
+    body: { id },
+  } = req;
+  await checkTodo(id);
+  const { rows: todos } = await getTodos();
   res.status(200).json({ todos });
 };
-
-export default checkTodoAsCompleted;

@@ -1,38 +1,37 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { arrayOf, element } from 'prop-types';
+import { deleteTodo, getTodos } from '../../services';
 
 const context = createContext();
 
 const todoReducer = (todos, action) => {
   const {
     type,
-    payload: { id, content, checked },
+    payload: { list },
   } = action;
-  const todosCount = todos.length;
-  const currentTodoItem = todos.find((todo) => todo.id === id);
-  const remindingTodos = todos.filter((todo) => todo.id !== id);
+
   switch (type) {
-    case 'set-todos':
-      return [...action.payload];
+    case 'set-todos': {
+      return list;
+    }
     case 'get-todo':
-      return [...todos];
+      return list;
     case 'get-active-todos':
       return todos.filter((todo) => todo.checked === false);
     case 'add-todo':
-      return [...todos, { id: todosCount + 1, content, checked: false }];
-    case 'delete-todo':
-      return todos.filter((todo) => todo.id !== id);
+      return list;
+    case 'delete-todo': {
+      // const todosList = await deleteTodo(id);
+      return list;
+    }
     case 'delete-completed':
-      return todos.filter((todo) => todo.checked === false);
+      return list;
     case 'check-todo':
-      return [
-        ...remindingTodos,
-        { ...currentTodoItem, checked: !currentTodoItem.checked },
-      ].sort((a, b) => a.id - b.id);
+      return list;
     case 'check-all-todo':
-      return todos.map((todo) => ({ ...todo, checked }));
+      return list;
     case 'clear-completed-todos':
-      return [...todos];
+      return list;
     default:
       throw new Error();
   }
@@ -44,8 +43,8 @@ export const Provider = ({ children }) => {
   useEffect(() => {
     (async () => {
       const data = await fetch('/api/getTodos');
-      const res = await data.json();
-      todosState[1]({ type: 'set-todos', payload: res.todos });
+      const { todos } = await data.json();
+      await todosState[1]({ type: 'set-todos', payload: { list: todos } });
     })();
   }, []);
 

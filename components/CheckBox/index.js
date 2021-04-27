@@ -1,13 +1,16 @@
 import { bool, number } from 'prop-types';
 import { useTodos } from '../Provider';
 import style from '../../styles/CheckBox.module.css';
+import { checkTodo, checkAllTodos } from '../../services';
 
 const CheckBox = ({ id, checked, checkAll }) => {
   const [, dispatch] = useTodos();
-  const handleCheck = (todoId) => (e) => {
+  const handleCheck = (todoId) => async () => {
+    const checkRequest = checkAll ? checkAllTodos() : checkTodo(todoId);
+    const todoList = await checkRequest;
     dispatch({
-      type: checkAll ? 'check-all-todo' : 'check-todo',
-      payload: { id: todoId, checked: e.target.checked },
+      type: 'check-todo',
+      payload: { list: todoList },
     });
   };
   return (

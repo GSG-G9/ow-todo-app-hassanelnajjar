@@ -1,12 +1,16 @@
 import { bool, number, shape, string } from 'prop-types';
+import { deleteTodo } from '../../services';
 import style from '../../styles/TodoItem.module.css';
 import { CheckBox } from '../CheckBox';
 import { useTodos } from '../Provider';
 
 const TodoItem = ({ todo: { content, checked, id } }) => {
   const [, dispatch] = useTodos();
-  const handleDeleteTodoItem = (todoId) => () =>
-    dispatch({ type: 'delete-todo', payload: { id: todoId } });
+  const handleDeleteTodoItem = (todoId) => async () => {
+    const todoList = await deleteTodo(todoId);
+    dispatch({ type: 'delete-todo', payload: { list: todoList } });
+  };
+
   return (
     <li className={style.todoItem}>
       <CheckBox id={id} checked={checked} />

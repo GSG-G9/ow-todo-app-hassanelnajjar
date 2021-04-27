@@ -1,1 +1,1 @@
-INSERT INTO Todos(id,content,checked) values (1,'hello',false);
+INSERT INTO Todos(id,content,checked) values (1,'hello',false),(2,'hello',false),(3,'hello',false);
