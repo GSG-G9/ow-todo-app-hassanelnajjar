@@ -1,3 +1,4 @@
+import { func } from 'prop-types';
 import { useTodos } from '../Provider';
 
 const TodoButtons = ({ setDisplayedTodos }) => {
@@ -30,4 +31,7 @@ const TodoButtons = ({ setDisplayedTodos }) => {
   );
 };
 
+TodoButtons.propTypes = {
+  setDisplayedTodos: func.isRequired,
+};
 export { TodoButtons };

@@ -11,11 +11,23 @@
   color:black;
   text-align: left;
   margin-left: 1rem;
+  cursor: pointer;
+  flex-grow:4 ;
 }
 
 .todoContentCheck{
   text-decoration: line-through;
   color:gray;
+
 }
 
+.todoItemDeleteButton{
+  visibility: hidden;
+  flex-grow:1 ;
+  width: fit-content;
+  color:gray
+}
 
+.todoItem:hover .todoItemDeleteButton{
+  visibility: visible;
+}
