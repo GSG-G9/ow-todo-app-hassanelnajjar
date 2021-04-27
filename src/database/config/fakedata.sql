@@ -1,0 +1,1 @@
+INSERT INTO Todos(id,content,checked) values (1,'hello',false);

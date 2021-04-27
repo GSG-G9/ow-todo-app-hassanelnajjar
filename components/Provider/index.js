@@ -1,14 +1,8 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { arrayOf, element } from 'prop-types';
 
 const context = createContext();
 
-const initialState = [
-  { content: 'First item', id: 1, checked: false },
-  { content: '2 item', id: 2, checked: false },
-  { content: '3 item', id: 3, checked: false },
-  { content: '4 item', id: 4, checked: false },
-];
 const todoReducer = (todos, action) => {
   const {
     type,
@@ -18,6 +12,8 @@ const todoReducer = (todos, action) => {
   const currentTodoItem = todos.find((todo) => todo.id === id);
   const remindingTodos = todos.filter((todo) => todo.id !== id);
   switch (type) {
+    case 'set-todos':
+      return [...action.payload];
     case 'get-todo':
       return [...todos];
     case 'get-active-todos':
@@ -43,7 +39,16 @@ const todoReducer = (todos, action) => {
 };
 
 export const Provider = ({ children }) => {
-  const todosState = useReducer(todoReducer, initialState);
+  const todosState = useReducer(todoReducer, []);
+
+  useEffect(() => {
+    (async () => {
+      const data = await fetch('/api/getTodos');
+      const res = await data.json();
+      todosState[1]({ type: 'set-todos', payload: res.todos });
+    })();
+  }, []);
+
   return <context.Provider value={todosState}>{children}</context.Provider>;
 };
 
