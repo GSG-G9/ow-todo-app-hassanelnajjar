@@ -12,15 +12,17 @@ const TodoButtons = ({ setDisplayedTodos }) => {
   return (
     <li>
       <span>{unCheckedTodos} items left</span>
-      <button type="button" onClick={handleAllTodos}>
-        All
-      </button>
-      <button type="button" onClick={handleActiveTodos}>
-        Active
-      </button>
-      <button type="button" onClick={handleCompletedTodos}>
-        Completed
-      </button>
+      <div>
+        <button type="button" onClick={handleAllTodos}>
+          All
+        </button>
+        <button type="button" onClick={handleActiveTodos}>
+          Active
+        </button>
+        <button type="button" onClick={handleCompletedTodos}>
+          Completed
+        </button>
+      </div>
       <button type="button" onClick={handleClearCompleted}>
         Clear Completed
       </button>

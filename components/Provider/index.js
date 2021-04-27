@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { element } from 'prop-types';
+import { arrayOf, element } from 'prop-types';
 
 const context = createContext();
 
@@ -48,7 +48,7 @@ export const Provider = ({ children }) => {
 };
 
 Provider.propTypes = {
-  children: element.isRequired,
+  children: arrayOf(element).isRequired,
 };
 
 export const useTodos = () => useContext(context);

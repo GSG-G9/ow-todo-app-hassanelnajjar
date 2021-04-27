@@ -39,7 +39,14 @@ const Home = () => {
               type="button"
               onClick={() => setLightMode((light) => !light)}
             >
-              Light/Dark
+              <img
+                src={
+                  lightMode
+                    ? '/assets/images/icon-moon.svg'
+                    : '/assets/images/icon-sun.svg'
+                }
+                alt=""
+              />
             </button>
           </header>
           <Todo />

@@ -20,13 +20,14 @@ const CheckBox = ({ id, checked, checkAll }) => {
 
 CheckBox.defaultProps = {
   id: 0,
+  checked: undefined,
   checkAll: false,
 };
 
 CheckBox.propTypes = {
   id: number,
   checkAll: bool,
-  checked: bool.isRequired,
+  checked: bool,
 };
 
 export { CheckBox };
