@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Head from 'next/head';
 import style from '../styles/Home.module.css';
 
-import { Provider } from '../components/Provider';
 import { Todo } from '../components/Todo';
 import { TodosList } from '../components/TodosList';
 
@@ -13,11 +11,7 @@ const lightImageBackground = '/assets/images/bg-desktop-light.jpg';
 const Home = () => {
   const [lightMode, setLightMode] = useState(true);
   return (
-    <Provider>
-      <Head>
-        <title>Todo App</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+    <>
       <div
         className={`${lightMode ? 'lightMode' : 'darkMode'} ${
           style.container
@@ -54,7 +48,7 @@ const Home = () => {
           <TodosList />
         </div>
       </div>
-    </Provider>
+    </>
   );
 };
 export default Home;
