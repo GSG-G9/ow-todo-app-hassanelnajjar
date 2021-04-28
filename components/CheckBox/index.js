@@ -5,8 +5,10 @@ import { checkTodo, checkAllTodos } from '../../services';
 
 const CheckBox = ({ id, checked, checkAll }) => {
   const [, dispatch] = useTodos();
-  const handleCheck = (todoId) => async () => {
-    const checkRequest = checkAll ? checkAllTodos() : checkTodo(todoId);
+  const handleCheck = (todoId) => async (e) => {
+    const checkRequest = checkAll
+      ? checkAllTodos(e.target.checked)
+      : checkTodo(todoId);
     const todoList = await checkRequest;
     dispatch({
       type: 'check-todo',

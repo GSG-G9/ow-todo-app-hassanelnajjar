@@ -4,3 +4,4 @@ module.exports.addTodo = require('./addTodo');
 module.exports.checkTodo = require('./checkTodo');
 module.exports.deleteTodos = require('./deleteTodos');
 module.exports.checkAllTodos = require('./checkAllTodos');
+module.exports.getActiveTodos = require('./getActiveTodos');

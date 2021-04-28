@@ -2,7 +2,10 @@
 import { checkAllTodos, getTodos } from '../../src/database/queries';
 
 export default async (req, res) => {
-  await checkAllTodos();
+  const {
+    body: { checked },
+  } = req;
+  await checkAllTodos(checked);
   const { rows: todos } = await getTodos();
   res.status(200).json({ todos });
 };

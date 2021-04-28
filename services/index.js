@@ -41,10 +41,10 @@ export const checkTodo = async (todoId) => {
   return todos;
 };
 
-export const checkAllTodos = async () => {
+export const checkAllTodos = async (checked) => {
   const {
     data: { todos },
-  } = await axios.post('/api/checkAllTodos');
+  } = await axios.post('/api/checkAllTodos', { checked });
 
   return todos;
 };

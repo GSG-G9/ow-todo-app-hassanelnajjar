@@ -5,7 +5,6 @@ export default async (req, res) => {
   const {
     body: { content },
   } = req;
-  console.log(content);
   await addTodo(content);
   const { rows: todos } = await getTodos();
   res.status(200).json({ todos });
