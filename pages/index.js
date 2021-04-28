@@ -9,7 +9,7 @@ const darkImageBackground = '/assets/images/bg-desktop-dark.jpg';
 const lightImageBackground = '/assets/images/bg-desktop-light.jpg';
 
 const Home = () => {
-  const [lightMode, setLightMode] = useState(true);
+  const [lightMode, setLightMode] = useState(false);
   return (
     <>
       <div
